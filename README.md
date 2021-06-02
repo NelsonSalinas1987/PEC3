@@ -29,3 +29,4 @@ diferentes.
 conclusiones? ¿Los resultados permiten responder al problema?
 
 # Licencia
+Se tomo en consideración un tipo de Licencia GNU General Public License v3.0, con el fin de ser usado por otros analistas.
