@@ -4,8 +4,8 @@ Universitat Oberta de Catalunya
 Máster en Ciencia de datos
 
 # Integrantes
-Javier Botija
-Nelson Salinas
+ Javier Botija
+ Nelson Salinas
 
 # Dataset
 Dataset (Anonimizado) obtenido de la base de datos Clinica San Francisco, Guayaquil-Ecuador.
