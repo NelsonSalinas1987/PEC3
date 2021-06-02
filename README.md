@@ -1,6 +1,7 @@
 # Análisis y limpieza de datos
 Desarollo PEC3 Tipologia de datos
 
+# Dataset
 Dataset (Anonimizado) obtenido de la base de datos Clinica San Francisco, Guayaquil-Ecuador
 
 # Descripción de la Práctica a realizar
@@ -26,3 +27,5 @@ diferentes.
   5. Representación de los resultados a partir de tablas y gráficas.
   6. Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las
 conclusiones? ¿Los resultados permiten responder al problema?
+
+# Licencia
