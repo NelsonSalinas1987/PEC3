@@ -2,7 +2,8 @@
 Desarollo PEC3 Tipologia de datos
 
 # Dataset
-Dataset (Anonimizado) obtenido de la base de datos Clinica San Francisco, Guayaquil-Ecuador
+Dataset (Anonimizado) obtenido de la base de datos Clinica San Francisco, Guayaquil-Ecuador.
+Enlace de acceso:
 https://github.com/NelsonSalinas1987/PEC3-TIPOLOGIA/blob/main/dataset_inicial/DIABETES_HCSF.rar
 
 # Descripción de la Práctica a realizar
