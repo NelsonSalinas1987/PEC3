@@ -36,6 +36,9 @@ diferentes.
   5. Representación de los resultados a partir de tablas y gráficas.
   6. Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las
 conclusiones? ¿Los resultados permiten responder al problema?
+  7. Código: Hay que adjuntar el código, preferiblemente en R, con el que se ha realizado la
+limpieza, análisis y representación de los datos. Si lo preferís, también podéis trabajar en
+Python. 
 
 ## Licencia
 Se tomo en consideración un tipo de Licencia GNU General Public License v3.0, con el fin de ser usado por otros analistas.
