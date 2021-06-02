@@ -1,18 +1,19 @@
-# Análisis y limpieza de datos
+# Análisis de datos en pacientes con/sin diabetes
+## Análisis y limpieza de datos
 Desarollo PEC3 Tipologia de datos
 Universitat Oberta de Catalunya
 Máster en Ciencia de datos
 
-# Integrantes
+## Integrantes
  Javier Botija<br/>
  Nelson Salinas
 
-# Dataset
+## Dataset
 Dataset (Anonimizado) obtenido de la base de datos Clinica San Francisco, Guayaquil-Ecuador.
 Enlace de acceso:
 https://github.com/NelsonSalinas1987/PEC3-TIPOLOGIA/blob/main/dataset_inicial/DIABETES_HCSF.rar
 
-# Descripción de la Práctica a realizar
+## Descripción de la Práctica a realizar
 El objetivo de esta actividad será el tratamiento de un dataset, que puede ser el creado en la
 práctica 1 o bien cualquier dataset libre disponible en Kaggle (https://www.kaggle.com).
 Siguiendo las principales etapas de un proyecto analítico, las diferentes tareas a realizar (y
@@ -36,5 +37,5 @@ diferentes.
   6. Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las
 conclusiones? ¿Los resultados permiten responder al problema?
 
-# Licencia
+## Licencia
 Se tomo en consideración un tipo de Licencia GNU General Public License v3.0, con el fin de ser usado por otros analistas.
