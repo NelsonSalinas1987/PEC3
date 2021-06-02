@@ -4,7 +4,7 @@ Universitat Oberta de Catalunya
 Máster en Ciencia de datos
 
 # Integrantes
- Javier Botija
+ Javier Botija<br/>
  Nelson Salinas
 
 # Dataset
