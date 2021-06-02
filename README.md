@@ -12,10 +12,12 @@ justificar) son las siguientes:
 responder?
   2. Integración y selección de los datos de interés a analizar.
   3. Limpieza de los datos.
+  
     3.1. ¿Los datos contienen ceros o elementos vacíos? ¿Cómo gestionarías cada uno
 de estos casos?
     3.2. Identificación y tratamiento de valores extremos.
   4. Análisis de los datos.
+  
     4.1. Selección de los grupos de datos que se quieren analizar/comparar (planificación
 de los análisis a aplicar).
     4.2. Comprobación de la normalidad y homogeneidad de la varianza.
