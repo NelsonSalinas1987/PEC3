@@ -11,7 +11,7 @@ Máster en Ciencia de datos
 ## Dataset
 Dataset (Anonimizado) obtenido de la base de datos Clinica San Francisco, Guayaquil-Ecuador.
 Enlace de acceso:
-https://github.com/NelsonSalinas1987/PEC3-TIPOLOGIA/blob/main/dataset_inicial/DIABETES_HCSF.rar
+https://github.com/NelsonSalinas1987/PEC3-TIPOLOGIA/blob/main/dataset_inicial/DIABETES_HCSF.xlsx
 
 ## Descripción de la Práctica a realizar
 El objetivo de esta actividad será el tratamiento de un dataset, que puede ser el creado en la
