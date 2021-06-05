@@ -1,48 +1,54 @@
 ---
-title: "Práctica 2: Limpieza y validación de los datos"
-authors: "Nelson Salinas Varas y Javier Botija Sanz"
-date: "Mayo 2021"
-output: 
+title: "PEC 3 - TIPOLOGÍA DE DATOS - ANÁLISIS Y LIMPIEZA DE DATOS"
+author: "Javier Botija y Nelson Salinas"
+date: "25/05/2021"
+output:
+  pdf_document: 
+    toc: yes
   html_document:
-    highlight: default
-    number_sections: yes
-    theme: cosmo
+    df_print: paged
     toc: yes
-    toc_depth: 3
-    toc_float:
-      collapsed: false
-      smooth_scroll: true
-  pdf_document:
-    highlight: default
-    number_section: yes
-    toc: yes
-    toc_depth: 3
-  word_document:
-    toc: yes
-    toc_depth: '3'
-lang: es
----
+ ---
+
+# Tema principal: Limpieza y análisis de datos en pacientes con/sin enfermedades cardiacas
+
+### Introducción
+
+Según la **Organización Mundial de Salud**, una de las principales causas de defunciones a nivel mundial, son directamente causadas por enfermedades cardiacas, en el año 2012 murieron aproximadamente 17.5 millones de personas en relación a alguna patologia presentada en el corazón, esto representa mas del 30% porciento de muertes a nivel mundial [OMS](https://www.who.int/cardiovascular_diseases/about_cvd/es/). En los próximos años se pronostica que para el año 2030, 23.6 millones de personas moriran a causa de alguna enfermedad cardiaca. Es por ello importante dar analisis a las variables que participan en el estudio para conocer las relaciones que existen entre las mismas y su efectos en cuanto a pacientes que sufren alguna patologia cardiaca segun el dataset en estudio. Incluso la **Organización Panamericana de Salud** en su página web detalla la importancia de los cuidados cardiovasculares que deben de tener los pacientes y publicaciones cientificas en relacion a dichas enfermedades [OPS](https://www.paho.org/es/temas/enfermedades-cardiovasculares). 
+
+Este trabajo será útil para poder analizar la cantidad de pacientes que se detectan con enfermedades cardiacas y que relación tienen con otras variables, por lo que se puede crear un plan de acción para generar recomendaciones a estos tipos de pacientes por la parte médica correspondiente.
+
+### Descripción
+
+El desarrollo de esta actividad abarcará la resolución de los puntos determinados para cada actividad, se tomará una base de datos de pacientes que se han realizado exámenes de corazón y tienen como referencia si tienen o no alguna patologia, esto permitirá resolver cual es la relación que hay entre ciertas variables de análisis y los cuidados respectivos en cuanto a las patologias detectadas.
+
+### Objetivos de la actividad
+
+  - Aplicar los conocimientos obtenidos para poder tratar un Dataset de información.
+  - Poder analizar las variables y su relación.
+  - Concluir y resolver el problema planteado.
+
+### Problemática
+La problemática que se desea resolver es verificar cual es la incidencia de patologia cardiacas entre los dos sexos participantes (Masculino Femenino), y a ello considerar cuales son los pacientes que deben ser mayormente vigilados en relación a lo ya indicado por la OMS, para la resolución del problema se tomará en cuenta la relación que tienen las variables y con ello poder concluir con un resultado final.
 
 
-Para la correcta resolución de este documento, cargamos las librerías que vamos a utilizar a lo largo del mismo.
+### Dataset
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
-# cargamos las librería necesrias
-library(ggplot2)
-library(dplyr)
-library(VIM)
-library(nortest)
-```
-
-
-
-# Descripción del dataset. ¿Por qué es importante y qué pregunta/problema pretende responder?
-
-El conjunto de datos que vamos a analizar es el conjunto de datos de enfermedades cardíacas del repositorio UCI Machine Learning Repository (https://archive.ics.uci.edu/ml/datasets/Heart+Disease).
+El dataset fue obtenido desde uno de los repositorios con mayor acogida a nivel mundial denominado UCI Machine Learning Repository. Link de acceso [UCI](https://archive.ics.uci.edu/), en el mismo existen gran cantidad de datasets para analizar. Para el desarrollo de esta actividad se toma en consideración un dataset que contiene información de pacientes con o sin enfermedades cardiacas donde se exponen varios parámetros para su análisis y relación entre variables. 
 
 Esta base de datos se compone de 4 datasets separados, de 4 ubicaciones diferentes (Cleveland, Hungría, Suiza y VA Long Beach). Se compone originalmente de 76 atributos, aunque están reducidos y procesados en subconjuntos de 14 características principales.
 
 Esta base de datos contiene 76 atributos, pero todos los experimentos publicados se refieren al uso de un subconjunto de 14 de ellos. En particular, la base de datos de Cleveland es la única que han utilizado los investigadores hasta la fecha. 
+
+**Nombre del dataset**: Heart Disease Data Set
+
+**Formato**: DATA
+
+**Link de acceso**: https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/
+
+**Cantidad de registros**: 920 registros global, 303 registros para análisis cleveland
+
+**Variables**: 14
 
 Las 14 variables que se usan son las siguientes (# número original de los 76):
 
@@ -84,12 +90,21 @@ Hoy por hoy se potencia mucho este tipo de estudios, dado que conseguir predecir
 
 Lo que pretendemos realizar es un modelo que nos indique, mediante algunas variables,la posibilidad de contraer una enfermedad, y en qué grado.
 
+Para la correcta resolución de este documento, cargamos las librerías que vamos a utilizar a lo largo del mismo.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# cargamos las librería necesrias
+library(ggplot2)
+library(dplyr)
+library(VIM)
+library(nortest)
+```
+
 # Integración y selección de los datos de interés a analizar.
 
 Aunque la base de datos completa es de 4 subdatasets, la propia web nos advierte que los investigadores sólo han usado la base de datos de Cleveland. Vamos a observar por qué motivo es.
 
 ```{r,eval=TRUE,echo=TRUE}
-
 # leemos los ficheros
 clev <- read.csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data',
                       stringsAsFactors = FALSE,
@@ -107,17 +122,12 @@ LBva <- read.csv('https://archive.ics.uci.edu/ml/machine-learning-databases/hear
                       stringsAsFactors = FALSE,
                       sep = ',',
                       header = FALSE)
-
 # unimos todos los sub-dataset en uno único para poder trabajar con el
 heart = rbind(clev,hung, swit, LBva)
-
-
 # Dado que es un fichero sin cabeceras, cargamos los nombres de las columnas
 names(heart) <- c("age","sex","cp","trestbps","chol","fbs","restecg","thalach","exang","oldpeak","slope","ca","thal","num")
-
 # Vamos a mostrar la estructura del conjunto de datos
 str(heart)
-
 # valores básicos de cada variable
 summary(heart)
 ```
@@ -128,44 +138,27 @@ La base de datos tiene valores nulos. Estos no son representados con un valor va
 # Sí hay valores ?, que no los trataremos dado que entendemos que son valores desconocidos
 colSums(heart=="?")
 ```
-
-Por este motivo, sabemos que no podemos unir el resto de subsets, dado que muchos de ellos carecen de un número de variables significativas.
-Por tanto nos quedaremos con los 303 datos del subset de Cleveland, tal como se anticipaba.
+Por este motivo, sabemos que no podemos unir el resto de subsets, dado que muchos de ellos carecen de un número de variables significativas. **Por tanto nos quedaremos con los 303 datos del subset de Cleveland, tal como se anticipaba**.
 
 ```{r}
 # nos quedamos sólo con los datos de Cleveland
 heart = clev
-
 # Dado que es un fichero sin cabeceras, cargamos los nombres de las columnas
 names(heart) <- c("age","sex","cp","trestbps","chol","fbs","restecg","thalach","exang","oldpeak","slope","ca","thal","num")
-
-
 # Vamos a mostrar la estructura del conjunto de datos
 str(heart)
 ```
 
-
 # Limpieza de los datos.
 
-En este punto vamos a convertir todos los valores chr a numéricos:
+Con la finalidad de obtener datos integros para el analisis de relacion y la comprensión del valor de los datos, se procederá a realizar la limpieza de los datos. En este punto vamos a convertir todos los valores chr a numéricos:
 
 ```{r}
-
 # pasamos a doble los campos con ?
-#heart$trestbps <- as.double(heart$trestbps)
-#heart$chol <- as.double(heart$chol)
-#heart$fbs <- as.double(heart$fbs)
-#heart$restecg <- as.double(heart$restecg)
-#heart$thalach <- as.double(heart$thalach)
-#heart$exang <- as.double(heart$exang)
-#heart$oldpeak <- as.double(heart$oldpeak)
-#heart$slope <- as.double(heart$slope)
 heart$ca <- as.double(heart$ca)
 heart$thal <- as.double(heart$thal)
-
 # valores básicos de cada variable
 summary(heart)
-
 ```
 
 ## ¿Los datos contienen ceros o elementos vacíos? ¿Cómo gestionarías cada uno de estos casos?
@@ -176,38 +169,32 @@ Aunque la función summary nos ha adelantado los valores NA, vamos a sacar sólo
  # Números de valores desconocidos por campo
 sapply(heart, function(x) sum(is.na(x)))
 ```
-
 Dado que tenemos muy pocos registros con datos nulos, podríamos optar por eliminar dichas filas, pero dado que nuestra base de datos no es muy numerosa en sujetos, optaremos por la imputación de valores. Podríamos optar por asignarles la media, pero en este caso utilizaremos el método de los KNN (k nearest neighborhoods) o k vecinos próximos, dado que se supone que tienen una relación entre ellos.
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-
-# aplicamos la imputación
+# Aplicamos la imputación
 heart$ca <- kNN(heart)$ca
 heart$thal <- kNN(heart)$thal
-
 # validamos que no quedan valores NA
 sapply(heart, function(x) sum(is.na(x)))
 ```
+Por lo consecuente se verifica que ya no existen valores nulos.
 
 ## Identificación y tratamiento de valores extremos.
 
-Para la identificación de valores extremos o outliers, los obtendremos gráficamente de las varibles que son continuas y no categóricas, y que los tienen (previo estudio de dichas variables) y también los obtendremos por la función de R que los lista.
+Para la identificación de valores extremos o outliers, los obtendremos gráficamente de las variables que son continuas y no categóricas, y que los tienen (previo estudio de dichas variables) y también los obtendremos por la función de R que los lista.
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 # gráfico boxplot para obtener outliers 
 boxplot(heart$trestbps)
 # obtenemos los valores
 boxplot.stats(heart$trestbps)$out
-
 boxplot(heart$chol)
 boxplot.stats(heart$chol)$out
-
 boxplot(heart$thalach)
 boxplot.stats(heart$thalach)$out
-
 boxplot(heart$oldpeak)
 boxplot.stats(heart$oldpeak)$out
-
 ```
 
 En este caso, aunque los valores superan los XXX, ni los vamos a eliminar, ni los vamos a ponderar, dado que representan precisamente valores posibles y que pueden marcar la diferencia para indicar la enfermedad.
@@ -219,7 +206,6 @@ En este caso, aunque los valores superan los XXX, ni los vamos a eliminar, ni lo
 write.csv(heart, "heart_clean.csv")
 ```
 
-
 # Análisis de los datos.
 
 ## Selección de los grupos de datos que se quieren analizar/comparar (planificación de los análisis a aplicar).
@@ -230,19 +216,15 @@ Para proceder al análisis, vamos a realizar diferentes grupos que permitirían 
 # Agrupación por sexo
 heart.male <- heart[heart$sex == 1,] 
 heart.female <- heart[heart$sex == 0,]
-
 # Agrupación por fbs
 heart.fbs <- heart[heart$fbs == 1,] 
 heart.nofbs <- heart[heart$fbs == 0,]
-
 # Agrupación por grupos de edad
 heart.30 <- heart[heart$age < 40,] 
 heart.40 <- heart[heart$age >= 40 & heart$age < 50,] 
 heart.50 <- heart[heart$age >= 50 & heart$age < 60,]
 heart.60 <- heart[heart$age >= 60 & heart$age < 70,]
 heart.70 <- heart[heart$age >= 70,]
-
-
 ```
 
 Podríamos realizar más segmentaciones de las mostradas, pero en este estudio, sólo vamos a utilizar la hecha por sexo. 
@@ -254,7 +236,6 @@ Para verificar que los valores se aproximan a una población distribuida, realiz
 ```{r}
 alpha = 0.05
 col.names = colnames(heart)
-
 for (i in 1:ncol(heart)) {
   if (i == 1) cat("Variables que no siguen una distribución normal:\n") 
   if (is.integer(heart[,i]) | is.numeric(heart[,i])) {
@@ -314,15 +295,13 @@ O lo que es lo mismo, se plantea el siguiente contraste de hipótesis de dos mue
 donde μ1 es la media de la enfermedad de las mujeres (población de la que se extrae la primera muestra) y μ2 es la media de la enfermedad de los hombres (población de la que extrae la segunda). Consideremos un nivel de confianza de 0.95 (α = 0, 05).
 
 ```{r}
-
 t.test( x = heart.male$num, 
         y = heart.female$num, 
         alternative = "greater",
         conf.level  = 0.95)
-
 ```
 
-El p-valor obtenido es menor que el valor de significación fijado, por tanto rechazamos la hipótesis nula. En este caso podemos concluir que, efectivamente, la posibilidad de tener mayor enfermedad en los hombres es mayor que en las mujeres.
+El p-valor obtenido es menor que el valor de significación fijado, por tanto rechazamos la hipótesis nula. En este caso podemos concluir que, efectivamente, **la posibilidad de tener mayor enfermedad en los hombres es mayor que en las mujeres.**
 
 Los valores son próximos, dado que son valores entre 0 y 4, pero la media es superior en hombres que en mujeres.
 
@@ -333,11 +312,9 @@ En primer lugar, procedemos a realizar un análisis de correlación entre las di
 Se recorren cada culumna del dataset realizando el coeficiente de correlación de Spearman, puesto que ya hemos visto que nuestros datos que no siguen una distribución normal.
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-
 # creamos la matriz vacía
 corr_matrix <- matrix(nc = 2, nr = 0) 
 colnames(corr_matrix) <- c("estimate", "p-value")
-
 # Calcular el coeficiente de correlación para cada variable cuantitativa 
 # en nuestro caso todas, con respecto al valor que determina la enfermedad 
 for (i in 1:(ncol(heart) - 1)) {
@@ -355,13 +332,12 @@ for (i in 1:(ncol(heart) - 1)) {
     rownames(corr_matrix)[nrow(corr_matrix)] <- colnames(heart)[i]
   }
 }
-
 # imprimimos la matriz
 print(corr_matrix)
 ```
 Podemos ver que no existe una variable que correlacione por sí misma con respecto al valor esperado.  Hay algunas que superan el 0.5, siendo este un valor bajo.
 
-Si alguna variable, compo por ejemplo el fbs o glucemia en ayunas, es porque aunque es un valor numérico, realmente es un valor categórico (1  > 120 mg/dl, 0  <= 120 mg/dl). 
+Si alguna variable, como por ejemplo el fbs o glucemia en ayunas, es porque aunque es un valor numérico, realmente es un valor categórico (1  > 120 mg/dl, 0  <= 120 mg/dl). 
 
 ### Modelo de regresión lineal
 
@@ -372,25 +348,18 @@ Aunque partiremos de los datos de correlación de las variables obtenidos en el 
 ```{r}
 # modelo con variables más correlacionadas
 modelo1 <- lm(num ~ thal + ca + cp + oldpeak + thalach, data = heart)
-
 # modelo con variables con outliers
 modelo2 <- lm(num ~ trestbps + chol + thalach + oldpeak, data = heart)
-
 # modelo con variables más correlacionadas sin outliers
 modelo3 <- lm(num ~ thal + ca + cp, data = heart)
-
 # modelo de todas las variables
 modelo4 <- lm(num ~ age + sex + cp + trestbps + chol + fbs + restecg + thalach + exang + oldpeak + slope + ca + thal, data = heart)
-
 tabla.r2 <- matrix(c(1, summary(modelo1)$r.squared, 
                       2, summary(modelo2)$r.squared,
                       3, summary(modelo3)$r.squared,
                       4, summary(modelo4)$r.squared), ncol = 2, byrow = TRUE)
 colnames(tabla.r2) <- c("Modelo", "R2")
-
 tabla.r2
-
-
 ```
 
 Vemos que el último modelo es el que mejor coeficiente de determinación tiene, aunque está claro que el valor sigue siendo bajo.
@@ -405,10 +374,29 @@ boxplot(heart.female$num, main='female: num', col = 'lightblue' )
 boxplot(heart.male$num, main='male: num', col = 'tomato' )
 ```
 
-Completar.
+En las gráficas por sexo se puede notar la inferencia que tiene la variable num para hombres como para mujeres, lo cual detalla, que hay mayor incidencia en el sexo masculino en padecer una enfermedad cardiaca.
+
+
+Otro análisis válido es poder demostrar mediante la curva ROC que tan factible es nuestro modelo, para este analisis se tomara en consideración el modelo4 que es el mejor coeficiente de determinación tuvo.
+
+```{r}
+library(pROC)
+prob=predict(modelo4, heart, type="response")
+r=roc(heart$sex,prob, data=heart)
+## Setting levels: Sin retraso = 0, Con retraso = 1
+## Setting direction: sinretraso > conretraso
+plot (r,print.auc=T,print.thres = "best",
+          col="blue",xlab="1-ESpecificidad",ylab="Sensibilidad")
+```
+Evidenciando los resultados, podemos ver que el AUC tiene un valor de 70%, lo cual detalla que el modelo4 es medianamente óptimo para los análisis de predicción aunque la recomendación es que se acerque al 100% para ser considerado óptimo.
+
 
 # Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las conclusiones? ¿Los resultados permiten responder al problema?
 
 En este ejercicio se ha realizado un análisis de una base de datos con valores numéricos que hemos tenido primero que completar, y también se ha realizado un análisis de datos outliers. Es importante tener claro cómo se cumplimentan los valores vacíos y cómo tratar los outliers si fuera el caso, dado que influyen mucho en los análisis posteriores.
 
-Posteriormente hemos realizado un análisis de las variables más significativas. El análisis nos ha llevado a concluir que no existe una relación lineal ni univariante ni multivariante para concluir los datos. Es posible que para poder predecir correctamente las enfermedades tengamos que aplicar otros modelos.
+Posteriormente hemos realizado un análisis de las variables más significativas. El análisis nos ha llevado a concluir que no existe una relación lineal ni univariante ni multivariante para concluir los datos. Es posible que para poder predecir correctamente las enfermedades tengamos que aplicar otros modelos u obtener mayor cantidad de datos que pueda ajustar el modelo para obtener mejor evidencia al caso de resolver.
+
+En relación a la problematica planteada, se puede concluir que se pudo obtener los resultados requeridos, y es que **los pacientes masculinos tienen mayor influencia en enfermedades cardiacas que las mujeres**, para ello es de vital importancia realizar algun plan de acción comunitario sobre los pacientes del dataset de cleveland, con el fin de evitar desarrollos de patologias cardiacas a futuro en el supuesto caso, ya que el dataset fue recopilado en el año 1988.
+
+Para futuros estudios. Segun la OMS, es importante que dichos pacientes tomen en consideración la reducción de malos hábitos como fumar, beber alcohol, no hacer ejercicio, comer grasas saturadas, entre otros. [Mas info.](https://www.paho.org/hq/dmdocuments/2011/Directrices-para-evaluacion-y-manejo-del-riego-CV-de-OMS.pdf). Es importante que se recogan nuevos datos para poder determinar la posición actual en relacion a enfermedades cardiovasculares.
