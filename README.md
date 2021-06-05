@@ -12,6 +12,7 @@
 
 ## Dataset
 Dataset (Anonimizado) obtenido de la base de datos UCI. Machine Learning Repository
+
 Enlace de acceso:
 
 https://archive.ics.uci.edu/ml/datasets/Heart+Disease
