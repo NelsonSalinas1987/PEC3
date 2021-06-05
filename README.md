@@ -20,7 +20,7 @@ Enlace del Dataset:
 
 https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data
 
-## Descripción de la Práctica a realizar
+## Descripción de la práctica a realizar
 El objetivo de esta actividad será el tratamiento de un dataset, que puede ser el creado en la
 práctica 1 o bien cualquier dataset libre disponible en Kaggle (https://www.kaggle.com).
 Siguiendo las principales etapas de un proyecto analítico, las diferentes tareas a realizar (y
