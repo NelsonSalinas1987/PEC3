@@ -7,16 +7,17 @@
 
 
 ## Integrantes
- Javier Botija
- 
- Nelson Salinas
+- Javier Botija
+- Nelson Salinas
 
 ## Dataset
 Dataset (Anonimizado) obtenido de la base de datos UCI. Machine Learning Repository
 Enlace de acceso:
+
 https://archive.ics.uci.edu/ml/datasets/Heart+Disease
 
 Enlace del Dataset:
+
 https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data
 
 ## Descripción de la Práctica a realizar
