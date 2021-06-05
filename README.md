@@ -1,8 +1,10 @@
 # Limpieza y análisis de datos en pacientes con/sin enfermedades cardiacas
 ## Análisis y limpieza de datos
-Desarollo PEC3 Tipologia de datos
-Universitat Oberta de Catalunya
-Máster en Ciencia de datos
+
+- Desarollo PEC3 Tipologia de datos
+- Universitat Oberta de Catalunya
+- Máster en Ciencia de datos
+
 
 ## Integrantes
  Javier Botija
