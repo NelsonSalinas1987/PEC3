@@ -47,5 +47,8 @@ conclusiones? ¿Los resultados permiten responder al problema?
 limpieza, análisis y representación de los datos. Si lo preferís, también podéis trabajar en
 Python. 
 
+## Estructura de la práctica
+
+
 ## Licencia
 Se tomo en consideración un tipo de Licencia GNU General Public License v3.0, con el fin de ser usado por otros analistas.
