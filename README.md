@@ -9,9 +9,11 @@ Máster en Ciencia de datos
  Nelson Salinas
 
 ## Dataset
-Dataset (Anonimizado) obtenido de la base de datos Clinica San Francisco, Guayaquil-Ecuador.
+Dataset (Anonimizado) obtenido de la base de datos UCI. Machine Learning Repository
 Enlace de acceso:
-https://github.com/NelsonSalinas1987/PEC3-TIPOLOGIA/blob/main/dataset_inicial/DIABETES_HCSF.xlsx
+https://archive.ics.uci.edu/ml/datasets/Heart+Disease
+Enlace del Dataset
+
 
 ## Descripción de la Práctica a realizar
 El objetivo de esta actividad será el tratamiento de un dataset, que puede ser el creado en la
