@@ -1,19 +1,21 @@
-# Análisis de datos en pacientes con/sin diabetes
+# Limpieza y análisis de datos en pacientes con/sin enfermedades cardiacas
 ## Análisis y limpieza de datos
 Desarollo PEC3 Tipologia de datos
 Universitat Oberta de Catalunya
 Máster en Ciencia de datos
 
 ## Integrantes
- Javier Botija<br/>
+ Javier Botija
+ 
  Nelson Salinas
 
 ## Dataset
 Dataset (Anonimizado) obtenido de la base de datos UCI. Machine Learning Repository
 Enlace de acceso:
 https://archive.ics.uci.edu/ml/datasets/Heart+Disease
-Enlace del Dataset
 
+Enlace del Dataset:
+https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data
 
 ## Descripción de la Práctica a realizar
 El objetivo de esta actividad será el tratamiento de un dataset, que puede ser el creado en la
