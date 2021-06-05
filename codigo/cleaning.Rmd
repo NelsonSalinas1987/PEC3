@@ -400,3 +400,12 @@ Posteriormente hemos realizado un análisis de las variables más significativas
 En relación a la problematica planteada, se puede concluir que se pudo obtener los resultados requeridos, y es que **los pacientes masculinos tienen mayor influencia en enfermedades cardiacas que las mujeres**, para ello es de vital importancia realizar algun plan de acción comunitario sobre los pacientes del dataset de cleveland, con el fin de evitar desarrollos de patologias cardiacas a futuro en el supuesto caso, ya que el dataset fue recopilado en el año 1988.
 
 Para futuros estudios. Segun la OMS, es importante que dichos pacientes tomen en consideración la reducción de malos hábitos como fumar, beber alcohol, no hacer ejercicio, comer grasas saturadas, entre otros. [Mas info.](https://www.paho.org/hq/dmdocuments/2011/Directrices-para-evaluacion-y-manejo-del-riego-CV-de-OMS.pdf). Es importante que se recogan nuevos datos para poder determinar la posición actual en relacion a enfermedades cardiovasculares.
+
+# Bibliografía
+
+- Calvo M, Subirats L, Pérez D (2019). Introducción a la limpieza y análisis de los datos. Editorial UOC.
+- Jason W. Osborne (2010). Data Cleaning Basics: Best Practices in Dealing with Extreme Scores. Newborn and Infant Nursing Reviews; 10 (1): pp. 1527-3369.
+- Wes McKinney (2012). Python for Data Analysis. O’Reilley Media, Inc.
+- OMS (2021). Enfermedades cardiovasculares. Link:  https://www.who.int/cardiovascular_diseases/about_cvd/es/
+- UCI (2021). Machine Learning Repository. Heart Disease. Link: https://archive.ics.uci.edu/ml/datasets/Heart+Disease
+
