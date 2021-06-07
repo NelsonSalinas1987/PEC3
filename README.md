@@ -9,8 +9,8 @@
 ## Integrantes
 <table style="width: 100%; text-align: center;">
   <tr>
-    <td style="width: 33%;">Contribuciones</td>
-    <td style="width: 33%;">Firma</td>
+    <th style="width: 33%;">Contribuciones</th>
+    <th style="width: 33%;">Firma</th>
   </tr>
   <tr>
     <td>Investigación previa </td>
