@@ -65,7 +65,7 @@ limpieza, análisis y representación de los datos. Si lo preferís, también po
 Python. 
 
 ## Estructura de la práctica
-![Esquema del proyecto dentro de Git](https://github.com/NelsonSalinas1987/PEC3-TIPOLOGIA/blob/main/codigo/pec3.png)
+![Esquema del proyecto dentro de Git](https://github.com/NelsonSalinas1987/PEC3-TIPOLOGIA/blob/main/pec3.png)
 
 ## Licencia
 Se tomo en consideración un tipo de Licencia GNU General Public License v3.0, con el fin de ser usado por otros analistas.
