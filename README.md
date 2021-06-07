@@ -7,8 +7,24 @@
 
 
 ## Integrantes
-- Javier Botija
-- Nelson Salinas
+<table style="width: 100%; text-align: center;">
+  <tr>
+    <td style="width: 33%;">Contribuciones</td>
+    <td style="width: 33%;">Firma</td>
+  </tr>
+  <tr>
+    <td>Investigación previa </td>
+    <td>Javier Botija, Nelson Salinas</td>
+  </tr>
+  <tr>
+    <td>Redacción de las respuestas </td>
+    <td>Javier Botija, Nelson Salinas</td>
+  </tr>
+  <tr>
+    <td>Desarrollo código </td>
+    <td>Javier Botija, Nelson Salinas</td>
+  </tr>
+</table>
 
 ## Dataset
 Dataset (Anonimizado) obtenido de la base de datos UCI. Machine Learning Repository
